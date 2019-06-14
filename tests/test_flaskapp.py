@@ -13,6 +13,11 @@ class FlaskTestCase(unittest.TestCase):
         # Check if the request fails with authorization error
         self.assertEqual(response._status_code,401,'Unauthorized access to page without login')
 
+    def test_authorisation(self):
+        response = self.app.get('/authorized')
+        resp = response.data.decode('utf-8')
+        self.assertEqual(resp, "You are logged in", 'login no work')
+
     def test_multiply(self):
         response = self.app.get('/multiply?x=5&y=7')
         resp = json.loads(response.data)
