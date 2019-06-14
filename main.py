@@ -12,6 +12,7 @@ def hello():
 
 @app.route('/multiply')
 def multiply():
+    # to define arguments use: http://localhost:5000/multiply?x=3&y=4
     x = int(request.args.get('x'))
     y = int(request.args.get('y'))
     return jsonify({'answer':x*y})
@@ -19,7 +20,7 @@ def multiply():
 @app.route('/touppercase')
 def touppercase():
     string = request.args.get('s')
-    return string.toupper()
+    return string.upper()
 
 
 @app.route('/authorized')
