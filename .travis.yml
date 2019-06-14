@@ -2,8 +2,6 @@ language: python
 python:
   - '3.6'
 
-CODECOV_TOKEN: "1639ab6f-c6e2-4634-969a-a0666ab9bb0f"
-
 install:
   - pip install -r requirements.txt
 
@@ -11,6 +9,7 @@ script:
   - python -m unittest discover
   - coverage erase
   - coverage run -m pytest && coverage html
+  - pylint --output-format=text main.py
 
 after_success:
   - codecov
