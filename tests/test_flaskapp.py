@@ -24,7 +24,7 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(resp, "Hello World!", 'print not nice')
 
     def test_uppercase(self):
-        response = self.app.get('/touppercase?s=pizzaa')
+        response = self.app.get('/touppercase?s=pizza')
         resp = response.data.decode('utf-8')
         self.assertEqual(resp, "PIZZA", 'pizza not nice')
 
